@@ -7,9 +7,9 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
        - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
-       - when: on_fail
-          steps:
-            - run: echo "my step fails"
+          when: on_fail
+           steps:
+             - run: echo "my step fails"
       
 
 workflows:
