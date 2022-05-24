@@ -1,16 +1,15 @@
 version: 2.1
 
-
 jobs:
   my_job:
     docker:
       - image: circleci/node:13.8.0
     steps:
-       - run: echo 127.0.0.1 devhost | sudo tee -a /etc/hosts
-           when: on_fail
-            steps:
-              - run: echo "my step fails"
-      
+      - run: exit 1
+      - run:
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
 
 workflows:
   my_workflow:
